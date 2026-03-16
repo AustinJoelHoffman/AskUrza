@@ -1,0 +1,33 @@
+
+[
+  {
+    "object": "card",
+    "name": "Ajani Goldmane",
+    "oracle_text": "[+1]: You gain 2 life.\n[−1]: Put a +1/+1 counter on each creature you control. Those creatures gain vigilance until end of turn.\n[−6]: Put a white Avatar creature token onto the battlefield. It has \"This creature's power and toughness are each equal to your life total.\"",
+    "type_line": "Legendary Planeswalker — Ajani"
+  },
+  {
+    "object": "card",
+    "name": "Sol Ring",
+    "oracle_text": "{T}: Add {C}{C}.",
+    "type_line": "Artifact"
+  },
+  {
+    "object": "card",
+    "name": "Chandra, Torch of Defiance",
+    "oracle_text": "[+1]: Exile the top card of your library. You may cast it. If you don't, Chandra, Torch of Defiance deals 2 damage to each opponent.\n[+1]: Add {R}{R}.\n[−3]: Chandra, Torch of Defiance deals 4 damage to target creature.\n[−7]: You get an emblem with \"Whenever you cast a spell, this emblem deals 5 damage to any target.\"",
+    "type_line": "Legendary Planeswalker — Chandra"
+  },
+  {
+    "object": "card",
+    "name": "Lightning Bolt",
+    "oracle_text": "Lightning Bolt deals 3 damage to any target.",
+    "type_line": "Instant"
+  },
+  {
+    "object": "card",
+    "name": "Jace, the Mind Sculptor",
+    "oracle_text": "[+2]: Look at the top card of target player's library. You may put that card on the bottom of that player's library.\n[0]: Draw three cards, then put two cards from your hand on top of your library in any order.\n[−1]: Return target creature to its owner's hand.\n[−12]: Exile all cards from target player's library, then that player shuffles their hand into their library.",
+    "type_line": "Legendary Planeswalker — Jace"
+  }
+]

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">AskUrzaApp</string>
+    <string name="title_main_menu">Main Menu</string>
+    <string name="btn_ask_urza">Ask Urza</string>
+    <string name="btn_about_urza">About Urza</string>
+    <string name="btn_exit">Exit</string>
+    <string name="btn_resume">Resume</string>
+    <string name="btn_main_menu">Main Menu</string>
+    <string name="title_about">About Urza</string>
+    <string name="title_ask_urza">Ask Urza</string>
+    <string name="desc_about">This is the About Urza page.</string>
+    <string name="content_desc_close">Close</string>
+</resources>
