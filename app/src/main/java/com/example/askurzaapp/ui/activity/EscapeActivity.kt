@@ -1,4 +1,4 @@
-package com.example.askurzaapp
+package com.example.askurzaapp.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -40,7 +40,7 @@ class EscapeActivity : ComponentActivity() {
             AskUrzaAppTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = Color.Black.copy(alpha = 0.5f) // Semi-transparent overlay
+                    color = Color.Black.copy(alpha = 0.5f)
                 ) {
                     EscapeMenuScreen(
                         onResume = { finish() },
@@ -57,7 +57,6 @@ class EscapeActivity : ComponentActivity() {
         }
     }
 
-    // Resume background tasks by pressing the escape key
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         if (keyCode == KeyEvent.KEYCODE_ESCAPE) {
             finish()
@@ -77,7 +76,6 @@ fun EscapeMenuScreen(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        // Escape Card
         Card(
             modifier = Modifier
                 .padding(16.dp)
@@ -94,7 +92,6 @@ fun EscapeMenuScreen(
                     .fillMaxWidth()
                     .padding(16.dp)
             ) {
-                // Close Button
                 IconButton(
                     onClick = onResume,
                     modifier = Modifier.align(Alignment.TopEnd)
@@ -105,11 +102,10 @@ fun EscapeMenuScreen(
                     )
                 }
 
-                // Menu Buttons
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(top = 40.dp, bottom = 16.dp), // Space for close button
+                        .padding(top = 40.dp, bottom = 16.dp),
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center
                 ) {

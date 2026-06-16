@@ -15,7 +15,7 @@
         android:theme="@style/Theme.AskUrzaApp">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,20 +23,16 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".AskUrzaActivity" />
-        <activity android:name=".AboutUrzaActivity" />
+        <activity android:name=".ui.activity.AskUrzaActivity" />
+        <activity android:name=".ui.activity.AboutUrzaActivity" />
         <activity
-            android:name=".EscapeActivity"
+            android:name=".ui.activity.EscapeActivity"
             android:theme="@style/Theme.AskUrzaApp.Transparent" />
         <activity
-            android:name=".LoyaltyActivity"
+            android:name=".ui.activity.LoyaltyActivity"
             android:theme="@style/Theme.AskUrzaApp.Transparent" />
-        <activity android:name=".UrzasSylexActivity" />
-        <activity
-            android:name=".PlusOneActivity"
-            android:theme="@style/Theme.AskUrzaApp.Transparent" />
-        <activity android:name=".DevActivity" />
-        <activity android:name=".CloudActivity" />
+        <activity android:name=".ui.activity.UrzasSylexActivity" />
+        <activity android:name=".ui.activity.DevActivity" />
 
     </application>
 

@@ -1,4 +1,4 @@
-package com.example.askurzaapp
+package com.example.askurzaapp.ui.activity
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -41,7 +41,6 @@ fun UrzasSylexScreen() {
     val shakeOffset = remember { Animatable(0f) }
 
     LaunchedEffect(Unit) {
-        // Horizontal shake
         for (i in 0..10) {
             shakeOffset.animateTo(30f, animationSpec = tween(50))
             shakeOffset.animateTo(-30f, animationSpec = tween(50))

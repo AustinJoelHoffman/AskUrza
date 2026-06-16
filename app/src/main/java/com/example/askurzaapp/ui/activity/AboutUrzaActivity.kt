@@ -1,4 +1,4 @@
-package com.example.askurzaapp
+package com.example.askurzaapp.ui.activity
 
 import android.content.Intent
 import android.net.Uri
@@ -41,6 +41,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
+import com.example.askurzaapp.R
 import com.example.askurzaapp.ui.theme.AskUrzaAppTheme
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
@@ -70,7 +71,6 @@ fun AboutUrzaScreen() {
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
-        // Aesthetic Border
         Image(
             painter = painterResource(id = R.drawable.urza_silver_boader),
             contentDescription = null,
@@ -78,7 +78,6 @@ fun AboutUrzaScreen() {
             contentScale = ContentScale.FillBounds
         )
 
-        // Content
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -86,14 +85,12 @@ fun AboutUrzaScreen() {
                 .verticalScroll(scrollState),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Title
             Text(
                 text = "About Urza",
                 style = MaterialTheme.typography.headlineLarge,
                 modifier = Modifier.padding(bottom = 16.dp)
             )
 
-            // Rules Text
             val rulesText = """
 Urza, Academy Headmaster is just like any other planeswalker, except you're never quite sure what his abilities are going to do. Urza is very unpredictable. To find out what happens, head to AskUrza.com. There you will find three buttons: +1, -1, and -6. Click the button for the loyalty ability that's resolving, and follow whatever instructions appear.
 (2018-01-19)
@@ -114,7 +111,6 @@ Players can respond to the activation of any of Urza's abilities, but not after 
                 modifier = Modifier.padding(bottom = 16.dp)
             )
 
-            // External Link
             val annotatedString = buildAnnotatedString {
                 append("For more information, visit: ")
                 pushStringAnnotation(tag = "URL", annotation = "https://scryfall.com/card/ust/136/urza-academy-headmaster")
@@ -190,7 +186,7 @@ fun ExternalLinkDialog(
                 }
             }
         },
-        confirmButton = {}, // Custom buttons in text parameter for specific layout
+        confirmButton = {},
         dismissButton = {}
     )
 }

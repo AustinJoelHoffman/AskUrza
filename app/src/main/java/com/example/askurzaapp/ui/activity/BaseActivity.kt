@@ -1,4 +1,4 @@
-package com.example.askurzaapp
+package com.example.askurzaapp.ui.activity
 
 import android.content.Intent
 import android.view.KeyEvent

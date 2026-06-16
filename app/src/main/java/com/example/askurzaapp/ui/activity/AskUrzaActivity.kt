@@ -1,4 +1,4 @@
-package com.example.askurzaapp
+package com.example.askurzaapp.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
@@ -31,6 +30,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.askurzaapp.R
+import com.example.askurzaapp.ui.components.ThoughtBubbleAnimation
 import com.example.askurzaapp.ui.theme.AskUrzaAppTheme
 import kotlinx.coroutines.delay
 import kotlin.random.Random
@@ -88,33 +89,20 @@ fun AskUrzaScreen(
 ) {
     val loyaltyCounter = remember { mutableIntStateOf(4) }
     
-    // Animation States
-    val animationStage = remember { mutableIntStateOf(0) } // 0: None, 1: B1, 2: B2, 3: B3, 4: Cloud
+    val animationStage = remember { mutableIntStateOf(0) }
     val lightningCloudRes = remember { mutableIntStateOf(R.drawable.cloud_angy) }
 
     LaunchedEffect(Unit) {
         while (true) {
-            // Wait 20-60 seconds
             delay(Random.nextLong(20000, 60000))
-
             val loyalty = loyaltyCounter.intValue
-            
-            // Stage 1: Bubble 1
             animationStage.intValue = 1
             delay(300)
-
-            // Stage 2: Bubble 2
             animationStage.intValue = 2
             delay(400)
-
-            // Stage 3: Bubble 3
             animationStage.intValue = 3
             delay(500)
-
-            // Stage 4: Cloud
             animationStage.intValue = 4
-            
-            // Lightning Sequence for Loyalty <= 1
             if (loyalty <= 1) {
                 lightningCloudRes.intValue = R.drawable.lightning_white
                 delay(100)
@@ -122,11 +110,7 @@ fun AskUrzaScreen(
                 delay(100)
                 lightningCloudRes.intValue = R.drawable.cloud_angy
             }
-
-            // Hold final state
             delay(3000)
-            
-            // Reset
             animationStage.intValue = 0
         }
     }
@@ -134,13 +118,11 @@ fun AskUrzaScreen(
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
-        // Top Half
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1.5f)
         ) {
-            // Urza, Academy Headmaster
             Box(
                  modifier = Modifier
                     .align(Alignment.Center)
@@ -155,7 +137,6 @@ fun AskUrzaScreen(
                     contentScale = ContentScale.Fit
                 )
 
-                // Loyalty Counters
                 Text(
                     text = loyaltyCounter.intValue.toString(),
                     color = Color.White,
@@ -166,7 +147,6 @@ fun AskUrzaScreen(
                         .padding(end = 38.dp, bottom = 36.dp)
                 )
 
-                // +1 Loyalty Ability
                 Box(
                     modifier = Modifier
                         .align(Alignment.Center)
@@ -179,7 +159,6 @@ fun AskUrzaScreen(
                         })
                 )
 
-                // -1 Loyalty Ability
                 Box(
                     modifier = Modifier
                         .align(Alignment.Center)
@@ -196,7 +175,6 @@ fun AskUrzaScreen(
                         })
                 )
 
-                // -6 Loyalty Ability
                 Box(
                     modifier = Modifier
                         .align(Alignment.Center)
@@ -205,7 +183,6 @@ fun AskUrzaScreen(
                         .padding(16.dp)
                         .clickable(onClick = {
                             if (loyaltyCounter.intValue == 1) {
-                                // Sylex
                                 loyaltyCounter.intValue = 4
                                 onUrzasSylexClick()
                             } else if (loyaltyCounter.intValue > 6) {
@@ -217,7 +194,6 @@ fun AskUrzaScreen(
                         })
                 )
 
-                // Refactored call to the new animation composable
                 if (animationStage.intValue > 0) {
                     ThoughtBubbleAnimation(
                         animationStage = animationStage.intValue,
@@ -227,7 +203,6 @@ fun AskUrzaScreen(
                 }
             }
 
-            // Dev_Tools Button
             Button(
                 onClick = onDevToolsClick,
                 modifier = Modifier
@@ -238,7 +213,6 @@ fun AskUrzaScreen(
             }
         }
 
-        // Bottom Half
         Box(
             modifier = Modifier
                 .fillMaxWidth()

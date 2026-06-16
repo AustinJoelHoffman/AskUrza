@@ -1,4 +1,4 @@
-package com.example.askurzaapp
+package com.example.askurzaapp.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -16,15 +16,12 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.askurzaapp.R
 import com.example.askurzaapp.ui.theme.AskUrzaAppTheme
 import kotlinx.coroutines.delay
 
-/**
- * A composable responsible for displaying the thought bubble animation stages.
- */
 @Composable
 fun BoxScope.ThoughtBubbleAnimation(animationStage: Int, loyalty: Int, lightningCloudRes: Int) {
-    // Bubble 1
     if (animationStage >= 1) {
         val resId = if (loyalty <= 3) R.drawable.bubble_1_angy else R.drawable.bubble_1
         Image(
@@ -38,7 +35,6 @@ fun BoxScope.ThoughtBubbleAnimation(animationStage: Int, loyalty: Int, lightning
         )
     }
 
-    // Bubble 2
     if (animationStage >= 2) {
         val resId = if (loyalty <= 1) R.drawable.bubble_2_angy
         else if (loyalty <= 3) R.drawable.bubble_2_rain
@@ -54,7 +50,6 @@ fun BoxScope.ThoughtBubbleAnimation(animationStage: Int, loyalty: Int, lightning
         )
     }
 
-    // Bubble 3
     if (animationStage >= 3) {
         val resId = if (loyalty <= 1) R.drawable.bubble_3_angy
         else if (loyalty <= 3) R.drawable.bubble_3_rain
@@ -70,7 +65,6 @@ fun BoxScope.ThoughtBubbleAnimation(animationStage: Int, loyalty: Int, lightning
         )
     }
 
-    // Cloud
     if (animationStage >= 4) {
         val resId = if (loyalty <= 1) R.drawable.cloud_angy
         else if (loyalty <= 3) R.drawable.cloud_rain
@@ -86,7 +80,6 @@ fun BoxScope.ThoughtBubbleAnimation(animationStage: Int, loyalty: Int, lightning
         )
     }
 
-    // Lightning
     if (animationStage == 5) {
         Image(
             painter = painterResource(id = lightningCloudRes),
@@ -98,12 +91,7 @@ fun BoxScope.ThoughtBubbleAnimation(animationStage: Int, loyalty: Int, lightning
             contentScale = ContentScale.Fit
         )
     }
-
-    // Post-Lightning animationStage 6
 }
-
-
-// Animation Previews
 
 @Preview(name = "Normal Animation", showBackground = true)
 @Composable
@@ -126,65 +114,6 @@ fun ThoughtBubbleAnimation_Normal_Preview() {
                 }
             }
             ThoughtBubbleAnimation(animationStage = animationStage.intValue, loyalty = 4, lightningCloudRes = R.drawable.cloud)
-        }
-    }
-}
-
-@Preview(name = "Rain Animation", showBackground = true)
-@Composable
-fun ThoughtBubbleAnimation_Rain_Preview() {
-    AskUrzaAppTheme {
-        Box(modifier = Modifier.fillMaxSize()) {
-            val animationStage = remember { mutableIntStateOf(0) }
-            LaunchedEffect(Unit) {
-                while(true) {
-                    animationStage.intValue = 0
-                    delay(1000)
-                    animationStage.intValue = 1
-                    delay(300)
-                    animationStage.intValue = 2
-                    delay(400)
-                    animationStage.intValue = 3
-                    delay(500)
-                    animationStage.intValue = 4
-                    delay(3000)
-                }
-            }
-            ThoughtBubbleAnimation(animationStage = animationStage.intValue, loyalty = 2, lightningCloudRes = R.drawable.cloud_rain)
-        }
-    }
-}
-
-@Preview(name = "Angry/Lightning Animation", showBackground = true)
-@Composable
-fun ThoughtBubbleAnimation_Angry_Preview() {
-    AskUrzaAppTheme {
-        Box(modifier = Modifier.fillMaxSize()) {
-            val animationStage = remember { mutableIntStateOf(0) }
-            val lightningCloudRes = remember { mutableIntStateOf(R.drawable.cloud_angy) }
-            LaunchedEffect(Unit) {
-                while(true) {
-                    animationStage.intValue = 0
-                    delay(1000)
-                    animationStage.intValue = 1
-                    delay(300)
-                    animationStage.intValue = 2
-                    delay(400)
-                    animationStage.intValue = 3
-                    delay(500)
-                    animationStage.intValue = 4
-                    lightningCloudRes.intValue = R.drawable.cloud_angy
-                    delay(1500)
-                    animationStage.intValue = 5
-                    lightningCloudRes.intValue = R.drawable.lightning_white
-                    delay(25)
-                    lightningCloudRes.intValue = R.drawable.lightning_bolt
-                    delay(75)
-                    animationStage.intValue = 6
-                    delay(1400)
-                }
-            }
-            ThoughtBubbleAnimation(animationStage = animationStage.intValue, loyalty = 1, lightningCloudRes = lightningCloudRes.intValue)
         }
     }
 }

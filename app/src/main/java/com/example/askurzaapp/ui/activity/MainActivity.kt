@@ -1,4 +1,4 @@
-package com.example.askurzaapp
+package com.example.askurzaapp.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -21,6 +20,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.askurzaapp.R
 import com.example.askurzaapp.ui.theme.AskUrzaAppTheme
 
 class MainActivity : BaseActivity() {
@@ -58,7 +58,6 @@ fun MainScreen(
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
-        // Silver App Border
         Image(
             painter = painterResource(id = R.drawable.urza_silver_boader),
             contentDescription = null,
@@ -66,7 +65,6 @@ fun MainScreen(
             contentScale = ContentScale.FillBounds
         )
 
-        // Menu Content
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
